@@ -22,12 +22,16 @@ export default function Player() {
   }
 
   useEffect(() => {
-    subscribeKeys(
+    const unsubscribeJump = subscribeKeys(
       (state) => state.jump,
       (value) => {
         if (value) jump()
       }
     )
+
+    return () => {
+      unsubscribeJump()
+    }
   }, [])
 
   useFrame((state, delta) => {
