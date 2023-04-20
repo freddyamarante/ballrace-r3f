@@ -265,6 +265,7 @@ export function Level({
   types = [BlockSpinner, BlockAxe, BlockLimbo],
   seed = 0,
 }) {
+  // Change blocks order only when seed changes
   const blocks = useMemo(() => {
     const blocks = []
 

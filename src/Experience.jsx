@@ -6,9 +6,11 @@ import Player from './Player.jsx'
 import useGame from './stores/useGame.js'
 
 export default function Experience() {
+  // Fetches the blocks count from the store
   const blocksCount = useGame((state) => {
     return state.blocksCount
   })
+  // Generates a blocks seed and passes it as a prop on Level component
   const blocksSeed = useGame((state) => state.blocksSeed)
 
   return (

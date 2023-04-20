@@ -10,7 +10,9 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <>
+    {/* Analytics from Vercel */}
     <Analytics />
+    {/* Set the keys the component KeyboardControls is going to listen to, which now can be used in the useKeyboardControls hook (which works as a Zustand store aswell) */}
     <KeyboardControls
       map={[
         { name: 'forward', keys: ['ArrowUp', 'KeyW'] },

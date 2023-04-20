@@ -5,9 +5,12 @@ import useGame from './stores/useGame.js'
 
 export default function Interface() {
   const time = useRef()
+
+  // Save the needed states from useGame
   const restart = useGame((state) => state.restart)
   const phase = useGame((state) => state.phase)
 
+  // Listen to keys from KeyboardControls
   const forward = useKeyboardControls((state) => state.forward)
   const backward = useKeyboardControls((state) => state.backward)
   const leftward = useKeyboardControls((state) => state.leftward)
@@ -15,17 +18,19 @@ export default function Interface() {
   const jump = useKeyboardControls((state) => state.jump)
 
   useEffect(() => {
+    // addEffect is a function that runs on each frame, we use addEffect instead of useFrame because we are outside the canvas
     const unsubscribeEffect = addEffect(() => {
       const state = useGame.getState()
 
       let elapsedTime = 0
 
       if (state.phase === 'playing') {
-        elapsedTime = Date.now() - state.startTime
+        elapsedTime = Date.now() - state.startTime // Update time when playing
       } else if (state.phase === 'ended') {
-        elapsedTime = state.endTime - state.startTime
+        elapsedTime = state.endTime - state.startTime // Get total time when ended
       }
 
+      // Format elapsed time
       elapsedTime /= 1000
       elapsedTime = elapsedTime.toFixed(2)
 
@@ -35,6 +40,7 @@ export default function Interface() {
     })
 
     return () => {
+      // Unsubscribe from the effect when the component unmounts
       unsubscribeEffect()
     }
   }, [])
