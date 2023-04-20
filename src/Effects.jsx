@@ -4,7 +4,7 @@ export default function Effects() {
   return (
     <EffectComposer>
       <SSR
-        intensity={0.45}
+        intensity={0.1}
         exponent={1}
         distance={10}
         fade={10}
