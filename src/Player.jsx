@@ -17,7 +17,6 @@ export default function Player() {
 
   const start = useGame((state) => state.start)
   const end = useGame((state) => state.end)
-  const restart = useGame((state) => state.restart)
 
   const blocksCount = useGame((state) => state.blocksCount)
 
@@ -127,7 +126,7 @@ export default function Player() {
     }
 
     if (bodyPosition.y < -4) {
-      restart()
+      reset()
     }
   })
 
