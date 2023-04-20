@@ -9,16 +9,24 @@ THREE.ColorManagement.legacyMode = false
 // Materials & geometries
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
 const floor1Material = new THREE.MeshStandardMaterial({
-  color: 'limegreen',
+  color: '#111111',
+  metalness: 0,
+  roughness: 0,
 })
 const floor2Material = new THREE.MeshStandardMaterial({
-  color: 'greenYellow',
+  color: '#222222',
+  metalness: 0,
+  roughness: 0,
 })
 const obstacleMaterial = new THREE.MeshStandardMaterial({
-  color: 'orangered',
+  color: '#ff0000',
+  metalness: 0,
+  roughness: 1,
 })
 const wallMaterial = new THREE.MeshStandardMaterial({
-  color: 'slategrey',
+  color: '#887777',
+  metalness: 0,
+  roughness: 0,
 })
 
 export function BlockStart({ position = [0, 0, 0] }) {
@@ -31,7 +39,7 @@ export function BlockStart({ position = [0, 0, 0] }) {
           maxWidth={0.25}
           lineHeight={0.75}
           textAlign="right"
-          position={[0.75, 0.4, 0]}
+          position={[0.75, 0.7, 0]}
           rotation-y={-0.25}
         >
           BALL RACE
