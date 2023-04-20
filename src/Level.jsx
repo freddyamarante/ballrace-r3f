@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { useRef, useState, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { CuboidCollider, RigidBody } from '@react-three/rapier'
-import { useGLTF } from '@react-three/drei'
+import { Float, Text, useGLTF } from '@react-three/drei'
 
 THREE.ColorManagement.legacyMode = false
 
@@ -23,7 +23,20 @@ const wallMaterial = new THREE.MeshStandardMaterial({
 
 export function BlockStart({ position = [0, 0, 0] }) {
   return (
-    <group position={position}>
+    <group position={position} font="./bebas-neue-v9-latin-regular.woff">
+      <Float>
+        <Text
+          font="./bebas-neue-v9-latin-regular.woff"
+          scale={0.5}
+          maxWidth={0.25}
+          lineHeight={0.75}
+          textAlign="right"
+          position={[0.75, 0.4, 0]}
+          rotation-y={-0.25}
+        >
+          BALL RACE
+        </Text>
+      </Float>
       <mesh
         geometry={boxGeometry}
         material={floor1Material}
@@ -44,6 +57,14 @@ export function BlockEnd({ position = [0, 0, 0] }) {
 
   return (
     <group position={position}>
+      <Text
+        font="./bebas-neue-v9-latin-regular.woff"
+        scale={1}
+        position={[0, 1.25, 2]}
+      >
+        FINISH
+        <meshBasicMaterial toneMapped={false} />
+      </Text>
       <RigidBody
         position={[0, 0.25, 0]}
         type="fixed"

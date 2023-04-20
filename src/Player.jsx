@@ -68,7 +68,7 @@ export default function Player() {
 
   useFrame((state, delta) => {
     // Controls
-    const { forward, backward, leftward, rightward } = getKeys()
+    const { forward, backward, leftward, rightward, restart } = getKeys()
 
     const impulse = { x: 0, y: 0, z: 0 }
     const torque = { x: 0, y: 0, z: 0 }
