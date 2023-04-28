@@ -1,1 +1,1 @@
-# 53-create-a-game-with-r3f
+Based on Bruno Simon's Three.js Journey final project!
